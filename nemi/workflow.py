@@ -145,6 +145,14 @@ class SingleNemi():
         """
         np.save(filename, self.embedding)
 
+    def save_clusters(self, filename):
+        """ Save the embedding to a file
+
+        Args:
+            filename (str): Filename to save clusters
+        """
+        np.save(filename, self.clusters)        
+
     def plot(self, to_plot=None, **kwargs):
         if to_plot.lower() == 'embedding':
             self._plot_embedding(**kwargs)
@@ -255,6 +263,17 @@ class NEMI(SingleNemi):
 
         if to_plot == 'clusters':
             super().plot('clusters')
+
+
+    def save_clusters_embeddings(self, dirname):
+  
+        for id, nemi in enumerate(self.nemi_pack):
+
+            nemi.save_embedding(dirname + 'nemi_embedding_' + str(id))
+            print('NEMI embeddings saved as '+ dirname + 'nemi_embedding_' + str(id))
+            nemi.save_clusters(dirname + 'nemi_clusters_' + str(id))
+            print('NEMI clusters saved as '+ dirname + 'nemi_clusters_' + str(id))
+    
 
     def assess_overlap(self, base_id:int =0, max_clusters=None, **kwargs):
         """ Assess the overlap between the clusters.
