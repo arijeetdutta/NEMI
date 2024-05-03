@@ -9,6 +9,8 @@ from collections import OrderedDict
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.neighbors import kneighbors_graph
+import multiprocessing
+ncpus = multiprocessing.cpu_count()
 # import sciris as sc
 
 __all__ = ['NEMI', 'SingleNemi']
@@ -254,6 +256,7 @@ class NEMI(SingleNemi):
             self.nemi_pack = nemi_pack
 
         self.assess_overlap()
+        return nemi_pack # added 030524
 
     def plot(self, to_plot=None, plot_ensemble=False, **kwargs):
 

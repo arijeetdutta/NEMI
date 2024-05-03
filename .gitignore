@@ -132,3 +132,7 @@ dmypy.json
 data/*/
 
 nemi/nemi_test.ipynb
+nemi/multi-proc-test1.ipynb
+*.ipynb
+*.csv
+*.nc
