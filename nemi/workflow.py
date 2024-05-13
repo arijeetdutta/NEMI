@@ -255,7 +255,7 @@ class NEMI(SingleNemi):
 
             self.nemi_pack = nemi_pack
 
-        # self.assess_overlap()
+        self.assess_overlap()
         return nemi_pack # added 030524
 
     def plot(self, to_plot=None, plot_ensemble=False, **kwargs):
