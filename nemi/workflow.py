@@ -66,8 +66,8 @@ class SingleNemi():
         self.clusters = self.predict_clusters()
 
         # sort the clusters by (descending) size
-        print('Sorting clusters')
-        self.clusters = self.sort_clusters(self.clusters)
+        # print('Sorting clusters')
+        # self.clusters = self.sort_clusters(self.clusters)
 
     def scale_data(self, X):
         """ Scale the data to have a mean and variance of 1.
@@ -255,7 +255,7 @@ class NEMI(SingleNemi):
 
             self.nemi_pack = nemi_pack
 
-        self.assess_overlap()
+        # self.assess_overlap()
         return nemi_pack # added 030524
 
     def plot(self, to_plot=None, plot_ensemble=False, **kwargs):
@@ -291,6 +291,11 @@ class NEMI(SingleNemi):
         # list of ensemble members we are comparing to the base
         compare_ids = [i for i in range(len(self.nemi_pack))]
         compare_ids.pop(base_id)
+
+        print('---------')
+        print(len(self.nemi_pack))
+        print(compare_ids)
+        print('---------')
 
         # identify clusters from the base ensemble member
         base_labels = self.nemi_pack[base_id].clusters
