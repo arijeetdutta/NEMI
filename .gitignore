@@ -133,7 +133,7 @@ data/*/
 
 nemi/nemi_test.ipynb
 nemi/multi-proc-test1.ipynb
-*.ipynb
 *.csv
 *.nc
 nemi_func.py
+*.npy
